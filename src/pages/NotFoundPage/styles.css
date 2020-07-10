@@ -1,0 +1,15 @@
+.not-found-page {
+  width: 50%;
+  color: #fff;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.not-found-page hr {
+  background-color: #fff;
+}
+
+.not-found-page .FiFrown {
+  width: 400px;
+  height: 400px;
+}

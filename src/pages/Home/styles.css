@@ -1,0 +1,16 @@
+.home {
+  padding: 10px 0px;
+  color: #fff;
+}
+.home h1 {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.home p {
+  text-align: center;
+}
+
+.home img {
+  background-color: rgb(255, 255, 255, 0.5);
+}

@@ -1,0 +1,32 @@
+.transportador {
+  padding: 10px 0;
+  color: #fff;
+}
+
+.transportador form {
+  width: 30%;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.transportador h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 20px 0px 10px 0px;
+}
+
+.transportador hr {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.transportador small {
+  text-align: center;
+  display: block;
+}
+
+.filiais label {
+  margin-bottom: 10px;
+}

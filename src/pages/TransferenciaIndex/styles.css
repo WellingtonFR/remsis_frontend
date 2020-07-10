@@ -1,0 +1,89 @@
+.cover-background {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lista-transferencias input {
+  width: 120px !important;
+}
+
+.lista-transferencias small {
+  text-align: center;
+  display: block;
+}
+
+.lista-transferencias-search {
+  padding: 5px 0px;
+  background: rgb(255, 255, 255, 0.2);
+}
+
+.lista-transferencias .table {
+  margin: 0 auto;
+  padding: 0;
+  background: var(--table-background);
+}
+
+.lista-transferencias .table .form-buttons {
+  text-align: center;
+  padding: 0;
+}
+
+.lista-transferencias .table thead {
+  font-weight: 500;
+  color: #fff;
+  background: var(--thead-gradient);
+}
+
+.lista-transferencias .table .btn-alterar {
+  display: inline-flex;
+  background-color: #004fbd;
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 5px;
+  border: none;
+}
+
+.lista-transferencias .table .btn-alterar:hover {
+  background-color: #0064e7;
+}
+
+.lista-transferencias .table .btn-excluir:hover {
+  background-color: #e00000;
+}
+
+.lista-transferencias-search {
+  padding: 10px;
+}
+
+.lista-transferencias-search label {
+  color: #fff;
+}
+
+.lista-transferencias ::placeholder {
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .lista-transferencias .form-inline {
+    display: inline-block;
+  }
+
+  .lista-transferencias .form-inline input {
+    margin-bottom: 5px;
+  }
+
+  .lista-transferencias label {
+    align-items: center;
+    justify-content: left;
+    text-align: left;
+    width: 100px;
+  }
+}

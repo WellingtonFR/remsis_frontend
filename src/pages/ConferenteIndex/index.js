@@ -1,0 +1,81 @@
+import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
+// eslint-disable-next-line
+import styles from "./styles.css";
+import api from "../../services/api";
+import { FiTrash2 } from "react-icons/fi";
+
+export default function FiliaisIndex() {
+  const [conferente, setConferente] = useState([]);
+
+  useEffect(() => {
+    api.get("conferente").then((response) => {
+      setConferente(response.data);
+    });
+  });
+
+  async function excluirConferente(id) {
+    try {
+      const { value: userConfirmAction } = await Swal.fire({
+        title: "Deseja excluir o conferente ?",
+        icon: "question",
+        showConfirmButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Excluir",
+        cancelButtonText: "Cancelar",
+        confirmButtonColor: "#af0600",
+      });
+      if (userConfirmAction) {
+        await api.delete(`/conferente/delete/${id}`).then(() => {
+          Swal.fire({
+            title: "Conferente excluído com sucesso",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1100,
+          });
+        });
+      }
+    } catch (err) {
+      const { data } = err.response;
+      Swal.fire({
+        title: "Erro ao excluir conferente",
+        text: data.message,
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1100,
+      });
+    }
+  }
+
+  return (
+    <div className="lista-conferente container">
+      <div className="cover-background">
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>ID</th>
+              <th colSpan="2" style={{ textAlign: "center" }}>
+                Opções
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {conferente.map((conferente) => (
+              <tr key={conferente.id}>
+                <td>{conferente.nomeConferente}</td>
+                <td>{conferente.idConferente}</td>
+                <td className="form-buttons">
+                  <FiTrash2
+                    className="btn-icon-excluir mt-1"
+                    onClick={() => excluirConferente(conferente.id)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}

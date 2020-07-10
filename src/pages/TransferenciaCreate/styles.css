@@ -1,0 +1,42 @@
+.transferencia {
+  padding: 10px 0px;
+  color: #fff;
+}
+
+.transferencia label {
+  margin-bottom: 5px;
+}
+
+.transferencia .formLines {
+  margin-top: 10px;
+  padding-left: 15px;
+}
+
+.transferencia .form-control {
+  font-size: 12px !important;
+}
+
+.transferencia select {
+  padding: 7px;
+}
+
+.transferencia h1 {
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 20px 0px 10px 0px;
+}
+
+.transferencia hr {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.transferencia .Head {
+  font-weight: 500;
+}
+
+.transferencia form ::placeholder {
+  color: #adadad;
+}

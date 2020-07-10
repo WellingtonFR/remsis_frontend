@@ -1,0 +1,65 @@
+.cover-background {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lista-filiais .table {
+  margin: 0 auto;
+  padding: 0;
+  background: #00d2ff;
+  background-image: linear-gradient(to left, #ffffff 0%, #a6c1ee 100%);
+}
+
+.lista-filiais .table .form-buttons {
+  text-align: center;
+  padding: 0;
+}
+
+.lista-filiais .table thead {
+  font-weight: 500;
+  color: #fff;
+  background: #00a2c7;
+  background: linear-gradient(to right, #2d65b4, #1fd6ff);
+}
+
+.lista-filiais .table .btn-alterar {
+  display: inline-flex;
+  background-color: #004fbd;
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 5px;
+  border: none;
+}
+
+.lista-filiais .table .btn-alterar:hover {
+  background-color: #0064e7;
+}
+
+.lista-filiais .table .btn-excluir {
+  display: inline-flex;
+  background-color: #af0600;
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 5px;
+  border: none;
+}
+
+.lista-filiais .table .btn-excluir:hover {
+  background-color: #cf0000;
+}

@@ -1,0 +1,222 @@
+/*CSS reset*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  background: #00a2c7;
+  background: linear-gradient(to right, #2d65b4, #1fd6ff);
+  -webkit-print-color-adjust: exact !important;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*CSS reset*/
+
+:root {
+  --thead-gradient: linear-gradient(to right, #2d65b4, #00c0eb);
+  --table-background: #cee0ff;
+}
+
+/*Eliminina as setas do input number*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/*Eliminina as setas do input number*/
+
+body {
+  background-color: #313131;
+  font-family: Roboto;
+  background: #00a2c7;
+  background: linear-gradient(to right, #3875ca, #00bde7);
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:link:hover {
+  text-decoration: none;
+}
+
+.link-inside-button,
+.link-inside-button:hover {
+  color: #fff;
+}
+
+.btn {
+  transition: 0.3s !important;
+}
+
+.btn-primary {
+  background-color: #0061a1 !important;
+  border: 1px solid #00a2ff !important;
+  transition: 0.3s !important;
+}
+
+.btn-primary:hover {
+  background-color: #006ab1 !important;
+}
+
+.button-center {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.btn-icon-excluir {
+  background-color: #af0600;
+  color: #fff;
+  padding: 4px;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-icon-excluir:hover {
+  background-color: #d60700;
+}
+
+.btn-icon-alterar {
+  background-color: #004fbd;
+  color: #fff;
+  padding: 4px;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-icon-alterar:hover {
+  background-color: #0064f0;
+}
+
+.disabled {
+  border: 2px solid rgb(197, 0, 0) !important;
+}

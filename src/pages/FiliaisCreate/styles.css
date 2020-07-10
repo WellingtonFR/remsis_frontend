@@ -1,0 +1,40 @@
+.filiais {
+  padding: 10px 0px;
+  color: #fff;
+}
+
+.filiais h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 20px 0px 10px 0px;
+}
+
+.filiais small {
+  text-align: center;
+  display: block;
+}
+
+.filiais hr {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.filiais form {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.filiais label {
+  margin-bottom: 10px;
+}
+
+.filiais form ::placeholder {
+  color: #adadad;
+}
+
+.buttons-submit {
+  margin-top: 30px;
+  text-align: center;
+}
