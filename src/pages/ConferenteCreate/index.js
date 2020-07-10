@@ -63,7 +63,7 @@ export default function ConferenteCreate() {
               name="idConferente"
               className="form-control"
               required
-              max="10"
+              max="99999999"
               onChange={(e) => setIdConferente(e.target.value)}
             ></input>
           </div>

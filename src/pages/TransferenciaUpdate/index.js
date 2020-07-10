@@ -363,7 +363,6 @@ export default function TransferenciaUpdate() {
                 name="nomeConferente"
                 className="form-control"
                 required
-                value={transferencia.conferente}
                 onChange={(e) => setConferente(e.target.value)}
               >
                 <option value="">Selecione</option>
