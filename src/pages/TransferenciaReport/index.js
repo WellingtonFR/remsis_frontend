@@ -14,7 +14,7 @@ export default function TransferenciaReport() {
   useEffect(() => {
     try {
       api.get(`/transferencia/findById/${id}`).then((response) => {
-        setReport(response.data);
+        setReport(response.data[0]);
       });
     } catch (err) {}
   });
