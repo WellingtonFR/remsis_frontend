@@ -17,7 +17,6 @@ import ConferenteIndex from "../pages/ConferenteIndex";
 import ConferenteCreate from "../pages/ConferenteCreate";
 import Login from "../pages/Login";
 import NotFoundPage from "../pages/NotFoundPage";
-import BackupDB from "../pages/BackupDB";
 
 export default function Routes() {
   const isAuthenticated = () => localStorage.getItem("token") !== null;
@@ -88,7 +87,6 @@ export default function Routes() {
 
           {/*Login*/}
           <Route exact path="/login" component={Login} />
-          <Route exact path="/backupDB" component={BackupDB} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>

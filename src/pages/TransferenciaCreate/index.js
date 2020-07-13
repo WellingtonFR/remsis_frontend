@@ -207,12 +207,15 @@ export default function TransferenciaCreate() {
   async function fetchDataToOptions() {
     await api.get("filiais").then((response) => {
       setFiliais(response.data);
+      console.log(response.data);
     });
     await api.get("transportador").then((response) => {
       setTransportadores(response.data);
+      console.log(response.data);
     });
     await api.get("conferente").then((response) => {
       setConferentes(response.data);
+      console.log(response.data);
     });
   }
 
@@ -437,11 +440,11 @@ export default function TransferenciaCreate() {
       .get(`/filiais/findByNumeroFilial/${optionValue}`)
       .then((response) => {
         let endereco =
-          response.data.endereco +
+          response.endereco +
           ", " +
-          response.data.numeroEndereco +
+          response.numeroEndereco +
           " " +
-          response.data.complemento;
+          response.complemento;
         setNomeUnidadeDestino(response.data.nomeFantasia);
         setEnderecoUnidadeDestino(endereco);
       });

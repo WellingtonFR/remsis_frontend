@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import { Link, useHistory } from "react-router-dom";
