@@ -440,11 +440,11 @@ export default function TransferenciaCreate() {
       .get(`/filiais/findByNumeroFilial/${optionValue}`)
       .then((response) => {
         let endereco =
-          response.endereco +
+          response[0].endereco +
           ", " +
-          response.numeroEndereco +
+          response[0].numeroEndereco +
           " " +
-          response.complemento;
+          response[0].complemento;
         setNomeUnidadeDestino(response.data.nomeFantasia);
         setEnderecoUnidadeDestino(endereco);
       });
