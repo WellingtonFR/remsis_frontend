@@ -439,12 +439,13 @@ export default function TransferenciaCreate() {
     await api
       .get(`/filiais/findByNumeroFilial/${optionValue}`)
       .then((response) => {
+        console.log(response);
         let endereco =
-          response[0].endereco +
+          response.data[0].endereco +
           ", " +
-          response[0].numeroEndereco +
+          response.data[0].numeroEndereco +
           " " +
-          response[0].complemento;
+          response.data[0].complemento;
         setNomeUnidadeDestino(response.data.nomeFantasia);
         setEnderecoUnidadeDestino(endereco);
       });
