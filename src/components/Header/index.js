@@ -8,11 +8,13 @@ export default function Header() {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
   const history = useHistory();
 
-  async function handleLogout() {
-    await api.post("/logout");
+  async function handleLogout(e) {
+    e.preventDefault();
+    api.post("/logout");
     localStorage.removeItem("token");
-    history.push("/login");
     localStorage.setItem("isLoggedIn", "false");
+    history.push("/login");
+    window.location.reload();
   }
 
   return (
