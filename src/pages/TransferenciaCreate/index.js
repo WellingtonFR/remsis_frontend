@@ -446,15 +446,15 @@ export default function TransferenciaCreate() {
           response.data[0].numeroEndereco +
           " " +
           response.data[0].complemento;
-        setNomeUnidadeDestino(response.data.nomeFantasia);
+        setNomeUnidadeDestino(response.data[0].nomeFantasia);
         setEnderecoUnidadeDestino(endereco);
       });
   }
 
   async function handleTransportador(optionValue) {
     await api.get(`/transportador/findById/${optionValue}`).then((response) => {
-      setPlacaVeiculo(response.data.placaVeiculo);
-      setTransportador(response.data.nomeTransportador);
+      setPlacaVeiculo(response.data[0].placaVeiculo);
+      setTransportador(response.data[0].nomeTransportador);
     });
   }
 
