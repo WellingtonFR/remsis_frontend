@@ -34,7 +34,7 @@ export default function TransferenciaUpdate() {
   useEffect(() => {
     try {
       api.get(`/transferencia/findById/${id}`).then((response) => {
-        setTransferencia(response.data);
+        setTransferencia(response.data[0]);
       });
       fetchDataToOptions();
     } catch (err) {}
@@ -52,8 +52,8 @@ export default function TransferenciaUpdate() {
 
   async function handleTransportador(optionValue) {
     await api.get(`/transportador/findById/${optionValue}`).then((response) => {
-      setPlacaVeiculo(response.data.placaVeiculo);
-      setTransportador(response.data.nomeTransportador);
+      setPlacaVeiculo(response.data[0].placaVeiculo);
+      setTransportador(response.data[0].nomeTransportador);
     });
   }
 
@@ -241,7 +241,7 @@ export default function TransferenciaUpdate() {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       await api.put(`/transferencia/update/${id}`, data).then(() => {
         Swal.fire({
-          title: "Inserido com sucesso !",
+          title: "Alterado com sucesso !",
           confirmButtonText: "Gerar relatório",
           icon: "success",
           preConfirm: () => {
