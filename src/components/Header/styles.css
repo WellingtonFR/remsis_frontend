@@ -2,3 +2,7 @@
 .btn-logout {
   width: 120px;
 }
+
+.navbar {
+  z-index: 9999;
+}

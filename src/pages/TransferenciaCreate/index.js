@@ -427,7 +427,8 @@ export default function TransferenciaCreate() {
     }
   }
 
-  function showMoreLines() {
+  function showMoreLines(e) {
+    e.preventDefault();
     let divMoreLines = document.querySelector("#moreLines");
     let btnShowMoreLines = document.querySelector("#btnShowMoreLines");
     divMoreLines.style.display = "block";
@@ -647,6 +648,7 @@ export default function TransferenciaCreate() {
                   type="text"
                   name="descricaoProduto_1"
                   className="form-control"
+                  maxLength="50"
                   required
                   onChange={(e) => setDescricaoProduto_1(e.target.value)}
                 />
@@ -714,6 +716,7 @@ export default function TransferenciaCreate() {
                   type="text"
                   name="descricaoProduto_2"
                   className="form-control"
+                  maxLength="50"
                   onChange={(e) => setDescricaoProduto_2(e.target.value)}
                 />
               </div>
@@ -778,6 +781,7 @@ export default function TransferenciaCreate() {
                   type="text"
                   name="descricaoProduto_3"
                   className="form-control"
+                  maxLength="50"
                   onChange={(e) => setDescricaoProduto_3(e.target.value)}
                 />
               </div>
@@ -842,6 +846,7 @@ export default function TransferenciaCreate() {
                   type="text"
                   name="descricaoProduto_4"
                   className="form-control"
+                  maxLength="50"
                   onChange={(e) => setDescricaoProduto_4(e.target.value)}
                 />
               </div>
@@ -906,6 +911,7 @@ export default function TransferenciaCreate() {
                   type="text"
                   name="descricaoProduto_5"
                   className="form-control"
+                  maxLength="50"
                   onChange={(e) => setDescricaoProduto_5(e.target.value)}
                 />
               </div>
@@ -970,6 +976,7 @@ export default function TransferenciaCreate() {
                   type="text"
                   name="descricaoProduto_6"
                   className="form-control"
+                  maxLength="50"
                   onChange={(e) => setDescricaoProduto_6(e.target.value)}
                 />
               </div>
@@ -1034,6 +1041,7 @@ export default function TransferenciaCreate() {
                   type="text"
                   name="descricaoProduto_7"
                   className="form-control"
+                  maxLength="50"
                   onChange={(e) => setDescricaoProduto_7(e.target.value)}
                 />
               </div>
@@ -1098,6 +1106,7 @@ export default function TransferenciaCreate() {
                   type="text"
                   name="descricaoProduto_8"
                   className="form-control"
+                  maxLength="50"
                   onChange={(e) => setDescricaoProduto_8(e.target.value)}
                 />
               </div>
@@ -1162,6 +1171,7 @@ export default function TransferenciaCreate() {
                   type="text"
                   name="descricaoProduto_9"
                   className="form-control"
+                  maxLength="50"
                   onChange={(e) => setDescricaoProduto_9(e.target.value)}
                 />
               </div>
@@ -1226,6 +1236,7 @@ export default function TransferenciaCreate() {
                   type="text"
                   name="descricaoProduto_10"
                   className="form-control"
+                  maxLength="50"
                   onChange={(e) => setDescricaoProduto_10(e.target.value)}
                 />
               </div>
@@ -1303,6 +1314,7 @@ export default function TransferenciaCreate() {
                     type="text"
                     name="descricaoProduto_11"
                     className="form-control"
+                    maxLength="50"
                     onChange={(e) => setDescricaoProduto_11(e.target.value)}
                   />
                 </div>
@@ -1367,6 +1379,7 @@ export default function TransferenciaCreate() {
                     type="text"
                     name="descricaoProduto_12"
                     className="form-control"
+                    maxLength="50"
                     onChange={(e) => setDescricaoProduto_12(e.target.value)}
                   />
                 </div>
@@ -1431,6 +1444,7 @@ export default function TransferenciaCreate() {
                     type="text"
                     name="descricaoProduto_13"
                     className="form-control"
+                    maxLength="50"
                     onChange={(e) => setDescricaoProduto_13(e.target.value)}
                   />
                 </div>
@@ -1495,6 +1509,7 @@ export default function TransferenciaCreate() {
                     type="text"
                     name="descricaoProduto_14"
                     className="form-control"
+                    maxLength="50"
                     onChange={(e) => setDescricaoProduto_14(e.target.value)}
                   />
                 </div>
@@ -1559,6 +1574,7 @@ export default function TransferenciaCreate() {
                     type="text"
                     name="descricaoProduto_15"
                     className="form-control"
+                    maxLength="50"
                     onChange={(e) => setDescricaoProduto_15(e.target.value)}
                   />
                 </div>
@@ -1623,6 +1639,7 @@ export default function TransferenciaCreate() {
                     type="text"
                     name="descricaoProduto_16"
                     className="form-control"
+                    maxLength="50"
                     onChange={(e) => setDescricaoProduto_16(e.target.value)}
                   />
                 </div>
@@ -1687,6 +1704,7 @@ export default function TransferenciaCreate() {
                     type="text"
                     name="descricaoProduto_17"
                     className="form-control"
+                    maxLength="50"
                     onChange={(e) => setDescricaoProduto_17(e.target.value)}
                   />
                 </div>
@@ -1751,6 +1769,7 @@ export default function TransferenciaCreate() {
                     type="text"
                     name="descricaoProduto_18"
                     className="form-control"
+                    maxLength="50"
                     onChange={(e) => setDescricaoProduto_18(e.target.value)}
                   />
                 </div>
@@ -1815,6 +1834,7 @@ export default function TransferenciaCreate() {
                     type="text"
                     name="descricaoProduto_19"
                     className="form-control"
+                    maxLength="50"
                     onChange={(e) => setDescricaoProduto_19(e.target.value)}
                   />
                 </div>
@@ -1879,6 +1899,7 @@ export default function TransferenciaCreate() {
                     type="text"
                     name="descricaoProduto_20"
                     className="form-control"
+                    maxLength="50"
                     onChange={(e) => setDescricaoProduto_20(e.target.value)}
                   />
                 </div>

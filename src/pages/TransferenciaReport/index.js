@@ -19,8 +19,23 @@ export default function TransferenciaReport() {
     } catch (err) {}
   });
 
+  function handlePrint(e) {
+    e.preventDefault();
+    window.print();
+  }
+
   return (
     <div className="container-fluid report">
+      <div className="overlay-print d-print-none">
+        <button
+          type="button"
+          name="imprimir"
+          className="btn btn-danger btn-print"
+          onClick={handlePrint}
+        >
+          Imprimir
+        </button>
+      </div>
       <div className="report-top">
         <div className="row">
           <div className="col-sm-3">
@@ -295,9 +310,7 @@ export default function TransferenciaReport() {
             <div className="sign">
               <div className="label">Conferente do CD</div>
               <div className="sign-line">
-                ____________________________________________
-                <br />
-                Wellington de Freitas Rocha
+                <h6>{report.conferente}</h6>
               </div>
             </div>
           </div>
