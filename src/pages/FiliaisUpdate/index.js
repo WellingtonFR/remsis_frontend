@@ -97,7 +97,6 @@ export default function FiliaisUpdate() {
               name="endereco"
               className="form-control"
               required
-              pattern="^([a-zA-Zà-úÀ-Ú]|\s+)+$"
               maxLength="50"
               value={filial.endereco}
               onChange={handleInputChange}
@@ -133,7 +132,6 @@ export default function FiliaisUpdate() {
             type="text"
             name="cidade"
             className="form-control"
-            pattern="^([a-zA-Zà-úÀ-Ú]|\s+)+$"
             value={filial.cidade}
             required
             onChange={handleInputChange}
