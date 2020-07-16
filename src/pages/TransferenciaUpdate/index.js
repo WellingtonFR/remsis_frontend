@@ -5,8 +5,10 @@ import moment from "moment";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function TransferenciaUpdate() {
+  const [loader, showLoader, hideLoader] = UseLoader();
   const [transferencia, setTransferencia] = useState([]);
   const [transportadores, setTransportadores] = useState([]); //Preenche o option
   const [transportador, setTransportador] = useState([]); //Informação a ser salva no banco
@@ -32,26 +34,33 @@ export default function TransferenciaUpdate() {
   const { id } = useParams();
 
   useEffect(() => {
-    try {
-      api.get(`/transferencia/findById/${id}`).then((response) => {
-        setTransferencia(response.data[0]);
-      });
-      fetchDataToOptions();
-    } catch (err) {}
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    populateData();
   }, []);
 
+  async function populateData() {
+    showLoader();
+    api.get(`/transferencia/findById/${id}`).then((response) => {
+      hideLoader();
+      setTransferencia(response.data[0]);
+    });
+    fetchDataToOptions();
+  }
+
   async function fetchDataToOptions() {
+    showLoader();
     await api.get("transportador").then((response) => {
       setTransportadores(response.data);
     });
     await api.get("conferente").then((response) => {
+      hideLoader();
       setConferentes(response.data);
     });
   }
 
   async function handleTransportador(optionValue) {
+    showLoader();
     await api.get(`/transportador/findById/${optionValue}`).then((response) => {
+      hideLoader();
       setPlacaVeiculo(response.data[0].placaVeiculo);
       setTransportador(response.data[0].nomeTransportador);
     });
@@ -238,8 +247,10 @@ export default function TransferenciaUpdate() {
     };
 
     try {
+      showLoader();
       // eslint-disable-next-line react-hooks/exhaustive-deps
       await api.put(`/transferencia/update/${id}`, data).then(() => {
+        hideLoader();
         Swal.fire({
           title: "Alterado com sucesso !",
           confirmButtonText: "Gerar relatório",
@@ -252,6 +263,7 @@ export default function TransferenciaUpdate() {
         });
       });
     } catch (err) {
+      hideLoader();
       const { data } = err.response;
       Swal.fire({
         title: "Erro ao inserir",
@@ -1841,6 +1853,7 @@ export default function TransferenciaUpdate() {
           {/*transferenciaCreate*/}
         </div>
       </form>
+      {loader}
     </div>
   );
 }

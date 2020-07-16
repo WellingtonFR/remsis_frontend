@@ -4,8 +4,10 @@ import moment from "moment";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function ConferenteCreate() {
+  const [loader, showLoader, hideLoader] = UseLoader();
   const [nomeConferente, setNomeConferente] = useState("");
   const [idConferente, setIdConferente] = useState("");
   const [created_at] = useState(moment().format("DD/MM/YYYY hh:mm:ss a"));
@@ -20,14 +22,17 @@ export default function ConferenteCreate() {
     };
 
     try {
+      showLoader();
       await api.post("/conferente/create", data).then(() => {
         Swal.fire({
           title: "Cadastrado com sucesso !",
           icon: "success",
         });
+        hideLoader();
       });
       document.querySelector("form").reset();
     } catch (err) {
+      hideLoader();
       const { data } = err.response;
       Swal.fire({
         title: "Erro ao cadastrar",
@@ -81,6 +86,7 @@ export default function ConferenteCreate() {
           </div>
         </div>
       </form>
+      {loader}
     </div>
   );
 }

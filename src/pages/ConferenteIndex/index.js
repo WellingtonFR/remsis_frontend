@@ -4,15 +4,23 @@ import Swal from "sweetalert2";
 import styles from "./styles.css";
 import api from "../../services/api";
 import { FiTrash2 } from "react-icons/fi";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function FiliaisIndex() {
+  const [loader, showLoader, hideLoader] = UseLoader();
   const [conferente, setConferente] = useState([]);
 
   useEffect(() => {
-    api.get("conferente").then((response) => {
+    populateData();
+  }, []);
+
+  async function populateData() {
+    showLoader();
+    await api.get("conferente").then((response) => {
+      hideLoader();
       setConferente(response.data);
     });
-  });
+  }
 
   async function excluirConferente(id) {
     try {
@@ -26,7 +34,10 @@ export default function FiliaisIndex() {
         confirmButtonColor: "#af0600",
       });
       if (userConfirmAction) {
+        showLoader();
         await api.delete(`/conferente/delete/${id}`).then(() => {
+          populateData();
+          hideLoader();
           Swal.fire({
             title: "Conferente excluído com sucesso",
             icon: "success",
@@ -36,6 +47,7 @@ export default function FiliaisIndex() {
         });
       }
     } catch (err) {
+      hideLoader();
       const { data } = err.response;
       Swal.fire({
         title: "Erro ao excluir conferente",
@@ -76,6 +88,7 @@ export default function FiliaisIndex() {
           </tbody>
         </table>
       </div>
+      {loader}
     </div>
   );
 }

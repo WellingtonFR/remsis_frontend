@@ -6,18 +6,24 @@ import "moment/locale/pt-br";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function TransferenciaReport() {
+  const [loader, showLoader, hideLoader] = UseLoader();
   const { id } = useParams();
   const [report, setReport] = useState("");
 
   useEffect(() => {
-    try {
-      api.get(`/transferencia/findById/${id}`).then((response) => {
-        setReport(response.data[0]);
-      });
-    } catch (err) {}
-  });
+    populateData();
+  }, []);
+
+  async function populateData() {
+    showLoader();
+    api.get(`/transferencia/findById/${id}`).then((response) => {
+      hideLoader();
+      setReport(response.data[0]);
+    });
+  }
 
   function handlePrint(e) {
     e.preventDefault();
@@ -358,6 +364,7 @@ export default function TransferenciaReport() {
         </div>
       </div>
       {/*container-fluid*/}
+      {loader}
     </div>
   );
 }

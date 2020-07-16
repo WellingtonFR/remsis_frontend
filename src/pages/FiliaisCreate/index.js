@@ -4,8 +4,10 @@ import moment from "moment";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function FiliaisCreate() {
+  const [loader, showLoader, hideLoader] = UseLoader();
   const [numeroFilial, setNumeroFilial] = useState("");
   const [endereco, setEndereco] = useState("");
   const [numeroEndereco, setNumeroEndereco] = useState("");
@@ -30,7 +32,9 @@ export default function FiliaisCreate() {
     };
 
     try {
+      showLoader();
       await api.post("/filiais/create", data).then(() => {
+        hideLoader();
         Swal.fire({
           title: "Cadastrado com sucesso !",
           icon: "success",
@@ -38,6 +42,7 @@ export default function FiliaisCreate() {
       });
       document.querySelector("form").reset();
     } catch (err) {
+      hideLoader();
       const { data } = err.response;
       Swal.fire({
         title: "Erro ao cadastrar",
@@ -176,6 +181,7 @@ export default function FiliaisCreate() {
           </div>
         </div>
       </form>
+      {loader}
     </div>
   );
 }

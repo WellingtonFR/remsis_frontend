@@ -1,22 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
 import Swal from "sweetalert2";
+import moment from "moment";
 import { FiTrash2, FiEdit } from "react-icons/fi";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function TransferenciaIndex() {
+  const [loader, showLoader, hideLoader] = UseLoader();
   const [transferencias, setTransferencias] = useState([]);
   const [initialDate, setInitialDate] = useState("");
   const [finalDate, setFinalDate] = useState("");
   const [numeroControle, setNumeroControle] = useState("");
   const [numeroFilial, setNumeroFilial] = useState("");
 
-  function loadData(e) {
-    e.preventDefault();
-    api.get("transferencia").then((response) => {
+  useEffect(() => {
+    const data = {
+      initialDate: moment().format("DD/MM/YYYY"),
+      finalDate: moment().format("DD/MM/YYYY"),
+      numeroControle,
+      numeroFilial,
+    };
+    try {
+      showLoader();
+      api.post("/transferencia/find", data).then((response) => {
+        setTransferencias(response.data);
+        hideLoader();
+      });
+    } catch (err) {
+      hideLoader();
+      const { data } = err.response;
+      Swal.fire({
+        title: "Atenção",
+        text: data.message,
+        icon: "info",
+        confirmButtonText: "Voltar",
+      });
+    }
+  }, []);
+
+  async function populateData() {
+    showLoader();
+    await api.get("transferencia").then((response) => {
       setTransferencias(response.data);
+      hideLoader();
+    });
+  }
+
+  async function btnPopulateData(e) {
+    e.preventDefault();
+    showLoader();
+    await api.get("transferencia").then((response) => {
+      setTransferencias(response.data);
+      hideLoader();
     });
   }
 
@@ -31,10 +69,13 @@ export default function TransferenciaIndex() {
     };
 
     try {
+      showLoader();
       await api.post("/transferencia/find", data).then((response) => {
         setTransferencias(response.data);
+        hideLoader();
       });
     } catch (err) {
+      hideLoader();
       const { data } = err.response;
       Swal.fire({
         title: "Atenção",
@@ -64,8 +105,7 @@ export default function TransferenciaIndex() {
             showConfirmButton: false,
             timer: 1100,
           });
-          var btnLoadData = document.querySelector("#btnLoadData");
-          btnLoadData.click();
+          populateData();
         });
       }
     } catch (err) {
@@ -141,7 +181,7 @@ export default function TransferenciaIndex() {
                 Pesquisar
               </button>
               <button
-                onClick={loadData}
+                onClick={btnPopulateData}
                 className="btn btn-dark ml-1"
                 id="btnLoadData"
               >
@@ -193,6 +233,7 @@ export default function TransferenciaIndex() {
           </tbody>
         </table>
       </div>
+      {loader}
     </div>
   );
 }

@@ -5,6 +5,7 @@ import moment from "moment";
 import { FiPlusCircle } from "react-icons/fi";
 import "./styles.css";
 import api from "../../services/api";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function TransferenciaCreate() {
   //#region useState
@@ -183,6 +184,7 @@ export default function TransferenciaCreate() {
   const [observacao_20, setObservacao_20] = useState("");
   //#endregion
 
+  const [loader, showLoader, hideLoader] = UseLoader();
   const history = useHistory();
 
   const tipoOptions = [
@@ -205,17 +207,16 @@ export default function TransferenciaCreate() {
   }, []);
 
   async function fetchDataToOptions() {
+    showLoader();
     await api.get("filiais").then((response) => {
       setFiliais(response.data);
-      console.log(response.data);
     });
     await api.get("transportador").then((response) => {
       setTransportadores(response.data);
-      console.log(response.data);
     });
     await api.get("conferente").then((response) => {
       setConferentes(response.data);
-      console.log(response.data);
+      hideLoader();
     });
   }
 
@@ -405,7 +406,9 @@ export default function TransferenciaCreate() {
     };
 
     try {
+      showLoader();
       await api.post("/transferencia/create", data).then((dataReturn) => {
+        hideLoader();
         const { id } = dataReturn.data;
         Swal.fire({
           title: "Inserido com sucesso !",
@@ -418,6 +421,7 @@ export default function TransferenciaCreate() {
         });
       });
     } catch (err) {
+      hideLoader();
       Swal.fire({
         title: "Erro ao inserir",
         text: "Contate o administrador",
@@ -436,11 +440,12 @@ export default function TransferenciaCreate() {
   }
 
   async function handleUnidadeDestino(optionValue) {
+    showLoader();
     setUnidadeDestino(optionValue);
     await api
       .get(`/filiais/findByNumeroFilial/${optionValue}`)
       .then((response) => {
-        console.log(response);
+        hideLoader();
         let endereco =
           response.data[0].endereco +
           ", " +
@@ -453,7 +458,9 @@ export default function TransferenciaCreate() {
   }
 
   async function handleTransportador(optionValue) {
+    showLoader();
     await api.get(`/transportador/findById/${optionValue}`).then((response) => {
+      hideLoader();
       setPlacaVeiculo(response.data[0].placaVeiculo);
       setTransportador(response.data[0].nomeTransportador);
     });
@@ -1929,6 +1936,7 @@ export default function TransferenciaCreate() {
           {/*transferenciaCreate*/}
         </div>
       </form>
+      {loader}
     </div>
   );
 }

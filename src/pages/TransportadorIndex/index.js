@@ -5,15 +5,24 @@ import Swal from "sweetalert2";
 import styles from "./styles.css";
 import api from "../../services/api";
 import { FiTrash2, FiEdit } from "react-icons/fi";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function TransportadorIndex() {
+  const [loader, showLoader, hideLoader] = UseLoader();
   const [transportador, setTransportador] = useState([]);
 
   useEffect(() => {
+    populateData();
+  }, []);
+
+  async function populateData() {
+    showLoader();
     api.get("transportador").then((response) => {
+      hideLoader();
       setTransportador(response.data);
     });
-  });
+  }
+
   async function excluirTransportador(id) {
     try {
       const { value: userConfirmAction } = await Swal.fire({
@@ -26,8 +35,10 @@ export default function TransportadorIndex() {
         confirmButtonColor: "#af0600",
       });
       if (userConfirmAction) {
+        showLoader();
         // eslint-disable-next-line react-hooks/exhaustive-deps
         await api.delete(`/transportador/delete/${id}`).then(() => {
+          hideLoader();
           Swal.fire({
             title: "Transportador excluído com sucesso",
             icon: "success",
@@ -35,8 +46,10 @@ export default function TransportadorIndex() {
             timer: 1100,
           });
         });
+        populateData();
       }
     } catch (err) {
+      hideLoader();
       const { data } = err.response;
       Swal.fire({
         title: "Erro ao excluir transportador",
@@ -85,6 +98,7 @@ export default function TransportadorIndex() {
           </tbody>
         </table>
       </div>
+      {loader}
     </div>
   );
 }

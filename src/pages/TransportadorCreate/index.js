@@ -4,8 +4,10 @@ import moment from "moment";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function TransportadorCreate() {
+  const [loader, showLoader, hideLoader] = UseLoader();
   const [nomeTransportador, setNomeTransportador] = useState("");
   const [placaVeiculo, setPlacaVeiculo] = useState("");
   const [created_at] = useState(moment().format("DD/MM/YYYY hh:mm:ss a"));
@@ -20,16 +22,18 @@ export default function TransportadorCreate() {
     };
 
     try {
+      showLoader();
       await api.post("/transportador/create", data).then(() => {
+        hideLoader();
         Swal.fire({
           title: "Cadastrado com sucesso",
           icon: "success",
-          showConfirmButton: false,
           timer: 1100,
         });
       });
       document.querySelector("form").reset();
     } catch (err) {
+      hideLoader();
       const { data } = err.response;
       Swal.fire({
         title: "Erro ao cadastrar",
@@ -80,6 +84,7 @@ export default function TransportadorCreate() {
           </div>
         </div>
       </form>
+      {loader}
     </div>
   );
 }

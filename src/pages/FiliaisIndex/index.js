@@ -5,15 +5,23 @@ import Swal from "sweetalert2";
 import styles from "./styles.css";
 import api from "../../services/api";
 import { FiTrash2, FiEdit } from "react-icons/fi";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function FiliaisIndex() {
+  const [loader, showLoader, hideLoader] = UseLoader();
   const [filiais, setFiliais] = useState([]);
 
   useEffect(() => {
-    api.get("filiais").then((response) => {
+    populateData();
+  }, []);
+
+  async function populateData() {
+    showLoader();
+    await api.get("filiais").then((response) => {
+      hideLoader();
       setFiliais(response.data);
     });
-  });
+  }
 
   async function excluirFilial(id) {
     try {
@@ -27,7 +35,10 @@ export default function FiliaisIndex() {
         confirmButtonColor: "#af0600",
       });
       if (userConfirmAction) {
+        showLoader();
         await api.delete(`/filiais/delete/${id}`).then(() => {
+          populateData();
+          hideLoader();
           Swal.fire({
             title: "Filial excluída com sucesso",
             icon: "success",
@@ -37,6 +48,7 @@ export default function FiliaisIndex() {
         });
       }
     } catch (err) {
+      hideLoader();
       const { data } = err.response;
       Swal.fire({
         title: "Erro ao excluir filial",
@@ -89,6 +101,7 @@ export default function FiliaisIndex() {
           </tbody>
         </table>
       </div>
+      {loader}
     </div>
   );
 }

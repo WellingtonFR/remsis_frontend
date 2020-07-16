@@ -4,8 +4,10 @@ import Swal from "sweetalert2";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function Login() {
+  const [loader, showLoader, hideLoader] = UseLoader();
   const history = useHistory();
   const [nomeUsuario, setNomeusuario] = useState("");
   const [senha, setSenha] = useState("");
@@ -15,13 +17,16 @@ export default function Login() {
 
     const data = { nomeUsuario, senha };
     try {
+      showLoader();
       await api.post("authenticate", data).then((response) => {
+        hideLoader();
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("isLoggedIn", "true");
         history.push("/");
         window.location.reload();
       });
     } catch (err) {
+      hideLoader();
       const { data } = err.response;
       Swal.fire({
         title: "Atenção",
@@ -55,6 +60,7 @@ export default function Login() {
           <button className="btn btn-primary">Entrar</button>
         </div>
       </form>
+      {loader}
     </div>
   );
 }

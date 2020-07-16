@@ -5,29 +5,26 @@ import moment from "moment";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function FiliaisUpdate() {
-  const initialFormState = {
-    numeroFilial: "",
-    endereco: "",
-    numeroEndereco: "",
-    complemento: "",
-    cidade: "",
-    estado: "",
-    nomeFantasia: "",
-  };
-
-  const [filial, setFilial] = useState(initialFormState);
+  const [loader, showLoader, hideLoader] = UseLoader();
+  const [filial, setFilial] = useState([]);
   const { id } = useParams();
 
   const history = useHistory();
 
   useEffect(() => {
-    api
-      .get(`/filiais/findById/${id}`)
-      .then((response) => setFilial(response.data));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    populateData();
   }, []);
+
+  async function populateData() {
+    showLoader();
+    await api.get(`/filiais/findById/${id}`).then((response) => {
+      hideLoader();
+      setFilial(response.data[0]);
+    });
+  }
 
   const handleInputChange = (e) => {
     e.persist();
@@ -49,7 +46,9 @@ export default function FiliaisUpdate() {
     };
 
     try {
+      showLoader();
       await api.put(`/filiais/update/${id}`, data).then(() => {
+        hideLoader();
         Swal.fire({
           title: "Alterado com sucesso !",
           icon: "success",
@@ -59,6 +58,7 @@ export default function FiliaisUpdate() {
       });
       history.push("/filiais");
     } catch (err) {
+      hideLoader();
       const { data } = err.response;
       Swal.fire({
         title: "Erro ao alterar",
@@ -205,6 +205,7 @@ export default function FiliaisUpdate() {
           </div>
         </div>
       </form>
+      {loader}
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function Home() {
           </div>
           <div className="col-md-6">
             <h1>REMSIS</h1>
-            <p>Sistemas de trasferência de produtos entre cds e filiais</p>
+            <p>Sistemas de transferência de produtos entre cds e filiais</p>
           </div>
         </div>
       </div>
