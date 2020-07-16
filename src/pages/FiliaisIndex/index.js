@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import $ from "jquery";
 import Swal from "sweetalert2";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
-import { FiTrash2, FiEdit } from "react-icons/fi";
+import { FiTrash2, FiEdit, FiArrowUp } from "react-icons/fi";
 import UseLoader from "../../hooks/UseLoader";
 
 export default function FiliaisIndex() {
@@ -60,6 +61,30 @@ export default function FiliaisIndex() {
     }
   }
 
+  //Botão de retorno ao topo página
+  $(document).ready(function () {
+    let btnSubir = $("#subirTopo");
+    btnSubir.hide();
+
+    $("a#subirTopo").click(function () {
+      $("body,html").animate(
+        {
+          scrollTop: 0,
+        },
+        800
+      );
+      return false;
+    });
+
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 1000) {
+        btnSubir.fadeIn();
+      } else {
+        btnSubir.fadeOut();
+      }
+    });
+  });
+
   return (
     <div className="lista-filiais container-fluid">
       <div className="cover-background">
@@ -100,6 +125,9 @@ export default function FiliaisIndex() {
             ))}
           </tbody>
         </table>
+      </div>
+      <div id="subirTopo">
+        <FiArrowUp />
       </div>
       {loader}
     </div>

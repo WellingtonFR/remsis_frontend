@@ -12,6 +12,9 @@ export default function TransferenciaReport() {
   const [loader, showLoader, hideLoader] = UseLoader();
   const { id } = useParams();
   const [report, setReport] = useState("");
+  const [dataDeImpressao, setDataDeImpressao] = useState(
+    moment().format("MMMM Do YYYY, h:mm:ss a")
+  );
 
   useEffect(() => {
     populateData();
@@ -25,8 +28,9 @@ export default function TransferenciaReport() {
     });
   }
 
-  function handlePrint(e) {
+  async function handlePrint(e) {
     e.preventDefault();
+    await setDataDeImpressao(moment().format("MMMM Do YYYY, h:mm:ss a"));
     window.print();
   }
 
@@ -358,9 +362,7 @@ export default function TransferenciaReport() {
           </div>
         </div>
         <div className="row dataAtual mt-3">
-          <div className="col">
-            Impresso em {moment().format("MMMM Do YYYY, h:mm:ss a")}
-          </div>
+          <div className="col">Impresso em {dataDeImpressao}</div>
         </div>
       </div>
       {/*container-fluid*/}

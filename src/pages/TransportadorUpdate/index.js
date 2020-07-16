@@ -15,7 +15,7 @@ export default function TransportadoUpdate() {
   useEffect(() => {
     api
       .get(`/transportador/findById/${id}`)
-      .then((response) => setTransportador(response.data));
+      .then((response) => setTransportador(response.data[0]));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
