@@ -78,8 +78,7 @@ export default function FiliaisCreate() {
               name="endereco"
               className="form-control"
               required
-              pattern="^([a-zA-Zà-úÀ-Ú]|\s+)+$"
-              maxLength="50"
+              maxLength="70"
               onChange={(e) => setEndereco(e.target.value)}
             ></input>
           </div>
@@ -111,7 +110,6 @@ export default function FiliaisCreate() {
             type="text"
             name="cidade"
             className="form-control"
-            pattern="^([a-zA-Zà-úÀ-Ú]|\s+)+$"
             required
             onChange={(e) => setCidade(e.target.value)}
           ></input>
