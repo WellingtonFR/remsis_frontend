@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import $ from "jquery";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
 import Swal from "sweetalert2";
 import moment from "moment";
-import { FiTrash2, FiEdit } from "react-icons/fi";
+import { FiTrash2, FiEdit, FiArrowUp } from "react-icons/fi";
 import UseLoader from "../../hooks/UseLoader";
 
 export default function TransferenciaIndex() {
@@ -120,6 +121,30 @@ export default function TransferenciaIndex() {
     }
   }
 
+  $(document).ready(function () {
+    let btnSubir = $("#subirTopo");
+    btnSubir.hide();
+
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        btnSubir.fadeIn();
+      } else {
+        btnSubir.fadeOut();
+      }
+    });
+  });
+
+  function btnSubir(e) {
+    e.preventDefault();
+    $("html").animate(
+      {
+        scrollTop: 0,
+      },
+      800
+    );
+    return false;
+  }
+
   return (
     <div className="lista-transferencias container-fluid">
       <div className="cover-background">
@@ -232,6 +257,9 @@ export default function TransferenciaIndex() {
             )}
           </tbody>
         </table>
+      </div>
+      <div id="subirTopo" onClick={btnSubir}>
+        <FiArrowUp />
       </div>
       {loader}
     </div>

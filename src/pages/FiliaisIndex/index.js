@@ -66,24 +66,25 @@ export default function FiliaisIndex() {
     let btnSubir = $("#subirTopo");
     btnSubir.hide();
 
-    $("a#subirTopo").click(function () {
-      $("body,html").animate(
-        {
-          scrollTop: 0,
-        },
-        800
-      );
-      return false;
-    });
-
     $(window).scroll(function () {
-      if ($(this).scrollTop() > 1000) {
+      if ($(this).scrollTop() > 100) {
         btnSubir.fadeIn();
       } else {
         btnSubir.fadeOut();
       }
     });
   });
+
+  function btnSubir(e) {
+    e.preventDefault();
+    $("html").animate(
+      {
+        scrollTop: 0,
+      },
+      800
+    );
+    return false;
+  }
 
   return (
     <div className="lista-filiais container-fluid">
@@ -126,7 +127,7 @@ export default function FiliaisIndex() {
           </tbody>
         </table>
       </div>
-      <div id="subirTopo">
+      <div id="subirTopo" onClick={btnSubir}>
         <FiArrowUp />
       </div>
       {loader}
