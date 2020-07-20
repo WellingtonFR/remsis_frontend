@@ -26,7 +26,7 @@ export default function TransferenciaIndex() {
     };
     try {
       showLoader();
-      api.post("/transferencia/find", data).then((response) => {
+      api.post("/transferencia/search", data).then((response) => {
         setTransferencias(response.data);
         hideLoader();
       });
@@ -71,7 +71,7 @@ export default function TransferenciaIndex() {
 
     try {
       showLoader();
-      await api.post("/transferencia/find", data).then((response) => {
+      await api.post("/transferencia/search", data).then((response) => {
         setTransferencias(response.data);
         hideLoader();
       });

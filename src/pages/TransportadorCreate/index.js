@@ -28,7 +28,6 @@ export default function TransportadorCreate() {
         Swal.fire({
           title: "Cadastrado com sucesso",
           icon: "success",
-          timer: 1100,
         });
       });
       document.querySelector("form").reset();

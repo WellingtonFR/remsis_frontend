@@ -115,7 +115,7 @@ export default function TransportadorIndex() {
                   </Link>
                   <FiTrash2
                     className="btn-icon-excluir mt-1"
-                    onClick={() => excluirTransportador(transportador.id)}
+                    onClick={() => excluirTransportador(`${transportador.id}`)}
                   />
                 </td>
               </tr>
