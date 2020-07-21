@@ -201,9 +201,7 @@ export default function TransferenciaCreate() {
   ];
 
   useEffect(() => {
-    try {
-      fetchDataToOptions();
-    } catch (err) {}
+    fetchDataToOptions();
   }, []);
 
   async function fetchDataToOptions() {
@@ -440,8 +438,15 @@ export default function TransferenciaCreate() {
   }
 
   async function handleUnidadeDestino(optionValue) {
+    if (!optionValue || optionValue == "") {
+      setNomeUnidadeDestino("");
+      setEnderecoUnidadeDestino("");
+      return null;
+    }
+
     showLoader();
     setUnidadeDestino(optionValue);
+
     await api
       .get(`/filiais/findByNumeroFilial/${optionValue}`)
       .then((response) => {
@@ -458,6 +463,12 @@ export default function TransferenciaCreate() {
   }
 
   async function handleTransportador(optionValue) {
+    if (!optionValue || optionValue == "") {
+      setPlacaVeiculo("");
+      setTransportador("");
+      return null;
+    }
+
     showLoader();
     await api.get(`/transportador/findById/${optionValue}`).then((response) => {
       hideLoader();
