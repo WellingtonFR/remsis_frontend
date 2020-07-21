@@ -103,27 +103,33 @@ export default function FiliaisIndex() {
             </tr>
           </thead>
           <tbody>
-            {filiais.map((filial) => (
-              <tr key={filial.id}>
-                <td>{filial.numeroFilial}</td>
-                <td>
-                  {filial.endereco}, {filial.numeroEndereco}{" "}
-                  {filial.complemento}
-                </td>
-                <td>{filial.cidade}</td>
-                <td>{filial.estado}</td>
-                <td>{filial.nomeFantasia}</td>
-                <td className="form-buttons">
-                  <Link to={`/filiais/update/${filial.id}`}>
-                    <FiEdit className="btn-icon-alterar mr-2 mt-1" />
-                  </Link>
-                  <FiTrash2
-                    className="btn-icon-excluir mt-1"
-                    onClick={() => excluirFilial(filial.id)}
-                  />
-                </td>
+            {conferente.length === 0 ? (
+              <tr>
+                <td>Não há informações para exibir</td>
               </tr>
-            ))}
+            ) : (
+              filiais.map((filial) => (
+                <tr key={filial.id}>
+                  <td>{filial.numeroFilial}</td>
+                  <td>
+                    {filial.endereco}, {filial.numeroEndereco}{" "}
+                    {filial.complemento}
+                  </td>
+                  <td>{filial.cidade}</td>
+                  <td>{filial.estado}</td>
+                  <td>{filial.nomeFantasia}</td>
+                  <td className="form-buttons">
+                    <Link to={`/filiais/update/${filial.id}`}>
+                      <FiEdit className="btn-icon-alterar mr-2 mt-1" />
+                    </Link>
+                    <FiTrash2
+                      className="btn-icon-excluir mt-1"
+                      onClick={() => excluirFilial(filial.id)}
+                    />
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

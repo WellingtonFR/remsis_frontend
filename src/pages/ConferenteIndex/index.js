@@ -73,18 +73,24 @@ export default function FiliaisIndex() {
             </tr>
           </thead>
           <tbody>
-            {conferente.map((conferente) => (
-              <tr key={conferente.id}>
-                <td>{conferente.nomeConferente}</td>
-                <td>{conferente.idConferente}</td>
-                <td className="form-buttons">
-                  <FiTrash2
-                    className="btn-icon-excluir mt-1"
-                    onClick={() => excluirConferente(conferente.id)}
-                  />
-                </td>
+            {conferente.length === 0 ? (
+              <tr>
+                <td>Não há informações para exibir</td>
               </tr>
-            ))}
+            ) : (
+              conferente.map((conferente) => (
+                <tr key={conferente.id}>
+                  <td>{conferente.nomeConferente}</td>
+                  <td>{conferente.idConferente}</td>
+                  <td className="form-buttons">
+                    <FiTrash2
+                      className="btn-icon-excluir mt-1"
+                      onClick={() => excluirConferente(conferente.id)}
+                    />
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
