@@ -105,21 +105,29 @@ export default function TransportadorIndex() {
             </tr>
           </thead>
           <tbody>
-            {transportador.map((transportador) => (
-              <tr key={transportador.id}>
-                <td>{transportador.nomeTransportador}</td>
-                <td>{transportador.placaVeiculo}</td>
-                <td className="form-buttons">
-                  <Link to={`/transportador/update/${transportador.id}`}>
-                    <FiEdit className="btn-icon-alterar mr-2 mt-1" />
-                  </Link>
-                  <FiTrash2
-                    className="btn-icon-excluir mt-1"
-                    onClick={() => excluirTransportador(`${transportador.id}`)}
-                  />
-                </td>
+            {transportador.length === 0 ? (
+              <tr>
+                <td>Não há informações para exibir</td>
               </tr>
-            ))}
+            ) : (
+              transportador.map((transportador) => (
+                <tr key={transportador.id}>
+                  <td>{transportador.nomeTransportador}</td>
+                  <td>{transportador.placaVeiculo}</td>
+                  <td className="form-buttons">
+                    <Link to={`/transportador/update/${transportador.id}`}>
+                      <FiEdit className="btn-icon-alterar mr-2 mt-1" />
+                    </Link>
+                    <FiTrash2
+                      className="btn-icon-excluir mt-1"
+                      onClick={() =>
+                        excluirTransportador(`${transportador.id}`)
+                      }
+                    />
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
