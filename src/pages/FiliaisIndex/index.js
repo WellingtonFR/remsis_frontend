@@ -103,7 +103,7 @@ export default function FiliaisIndex() {
             </tr>
           </thead>
           <tbody>
-            {conferente.length === 0 ? (
+            {filiais.length === 0 ? (
               <tr>
                 <td>Não há informações para exibir</td>
               </tr>
