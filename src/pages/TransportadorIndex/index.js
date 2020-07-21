@@ -18,7 +18,7 @@ export default function TransportadorIndex() {
 
   async function populateData() {
     showLoader();
-    api.get("transportador").then((response) => {
+    await api.get("transportador").then((response) => {
       hideLoader();
       setTransportador(response.data);
     });
@@ -37,8 +37,8 @@ export default function TransportadorIndex() {
       });
       if (userConfirmAction) {
         showLoader();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         await api.delete(`/transportador/delete/${id}`).then(() => {
+          populateData();
           hideLoader();
           Swal.fire({
             title: "Transportador excluído com sucesso",
@@ -47,7 +47,6 @@ export default function TransportadorIndex() {
             timer: 1100,
           });
         });
-        populateData();
       }
     } catch (err) {
       hideLoader();
@@ -62,6 +61,7 @@ export default function TransportadorIndex() {
     }
   }
 
+  //Botão de retorno ao topo página
   $(document).ready(function () {
     let btnSubir = $("#subirTopo");
     btnSubir.hide();
