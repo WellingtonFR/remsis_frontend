@@ -685,7 +685,6 @@ export default function TransferenciaCreate() {
                   type="text"
                   name="observacao_1"
                   className="form-control"
-                  required
                   onChange={(e) => setObservacao_1(e.target.value)}
                 />
               </div>
