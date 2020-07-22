@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import moment from "moment";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
@@ -10,7 +9,6 @@ export default function ConferenteCreate() {
   const [loader, showLoader, hideLoader] = UseLoader();
   const [nomeConferente, setNomeConferente] = useState("");
   const [idConferente, setIdConferente] = useState("");
-  const [created_at] = useState(moment().format("DD/MM/YYYY hh:mm:ss a"));
 
   async function handleNewConferente(e) {
     e.preventDefault();
@@ -18,7 +16,6 @@ export default function ConferenteCreate() {
     const data = {
       nomeConferente,
       idConferente,
-      created_at,
     };
 
     try {

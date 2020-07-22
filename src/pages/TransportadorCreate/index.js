@@ -10,7 +10,6 @@ export default function TransportadorCreate() {
   const [loader, showLoader, hideLoader] = UseLoader();
   const [nomeTransportador, setNomeTransportador] = useState("");
   const [placaVeiculo, setPlacaVeiculo] = useState("");
-  const [created_at] = useState(moment().format("DD/MM/YYYY hh:mm:ss a"));
 
   async function handleNewTransportador(e) {
     e.preventDefault();
@@ -18,7 +17,6 @@ export default function TransportadorCreate() {
     const data = {
       nomeTransportador,
       placaVeiculo,
-      created_at,
     };
 
     try {

@@ -42,7 +42,6 @@ export default function FiliaisUpdate() {
       cidade: filial.cidade,
       estado: filial.estado,
       nomeFantasia: filial.nomeFantasia,
-      updated_at: moment().format("DD/MM/YYYY hh:mm:ss a"),
     };
 
     try {

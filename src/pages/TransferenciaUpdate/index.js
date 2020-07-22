@@ -15,7 +15,6 @@ export default function TransferenciaUpdate() {
   const [conferente, setConferente] = useState([]); //Informação a ser salva no banco
   const [conferentes, setConferentes] = useState([]); //Preenche o option
   const [placaVeiculo, setPlacaVeiculo] = useState("");
-  const [updated_at] = useState(moment().format("DD/MM/YYYY hh:mm:ss a"));
 
   const tipoOptions = [
     "PORTARIA",
@@ -83,7 +82,6 @@ export default function TransferenciaUpdate() {
       transportador: transportador,
       placaVeiculo: placaVeiculo,
       conferente: conferente,
-      updated_at: updated_at,
       //
       filialOrigem_1: transferencia.filialOrigem_1,
       notaFiscal_1: transferencia.notaFiscal_1,

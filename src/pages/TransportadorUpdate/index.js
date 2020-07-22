@@ -5,19 +5,26 @@ import moment from "moment";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
+import UseLoader from "../../hooks/UseLoader";
 
 export default function TransportadoUpdate() {
+  const [loader, showLoader, hideLoader] = UseLoader();
   const [transportador, setTransportador] = useState("");
   const { id } = useParams();
 
   const history = useHistory();
 
   useEffect(() => {
-    api
-      .get(`/transportador/findById/${id}`)
-      .then((response) => setTransportador(response.data[0]));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    populateData();
   }, []);
+
+  async function populateData() {
+    showLoader();
+    await api.get(`/transportador/findById/${id}`).then((response) => {
+      hideLoader();
+      setTransportador(response.data[0]);
+    });
+  }
 
   const handleInputChange = (e) => {
     e.persist();
@@ -33,7 +40,6 @@ export default function TransportadoUpdate() {
     const data = {
       nomeTransportador: transportador.nomeTransportador,
       placaVeiculo: transportador.placaVeiculo,
-      updated_at: moment().format("DD/MM/YYYY hh:mm:ss a"),
     };
 
     try {

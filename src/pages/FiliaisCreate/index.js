@@ -15,7 +15,6 @@ export default function FiliaisCreate() {
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
   const [nomeFantasia, setNomeFantasia] = useState("");
-  const [created_at] = useState(moment().format("DD/MM/YYYY hh:mm:ss a"));
 
   async function handleNewFilial(e) {
     e.preventDefault();
@@ -28,7 +27,6 @@ export default function FiliaisCreate() {
       cidade,
       estado,
       nomeFantasia,
-      created_at,
     };
 
     try {

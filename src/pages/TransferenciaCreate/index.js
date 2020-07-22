@@ -21,7 +21,6 @@ export default function TransferenciaCreate() {
   const [placaVeiculo, setPlacaVeiculo] = useState("");
   const [conferente, setConferente] = useState(""); //Preenche o option
   const [conferentes, setConferentes] = useState([]); //para saída dos dados ao submeter
-  const [created_at] = useState(moment().format("DD/MM/YYYY hh:mm:ss a"));
   //Linhas
   const [filialOrigem_1, setFilialorigem_1] = useState("");
   const [notaFiscal_1, setNotafiscal_1] = useState("");
@@ -240,7 +239,6 @@ export default function TransferenciaCreate() {
       transportador,
       placaVeiculo,
       conferente,
-      created_at,
       //
       filialOrigem_1,
       notaFiscal_1,
