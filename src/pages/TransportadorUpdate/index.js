@@ -110,6 +110,7 @@ export default function TransportadoUpdate() {
           </div>
         </div>
       </form>
+      {loader}
     </div>
   );
 }
