@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { useParams, useHistory, Link } from "react-router-dom";
-import moment from "moment";
 // eslint-disable-next-line
 import styles from "./styles.css";
 import api from "../../services/api";
