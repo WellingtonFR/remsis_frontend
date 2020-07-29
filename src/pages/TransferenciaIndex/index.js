@@ -6,7 +6,7 @@ import styles from "./styles.css";
 import api from "../../services/api";
 import Swal from "sweetalert2";
 import moment from "moment";
-import { FiTrash2, FiEdit, FiArrowUp } from "react-icons/fi";
+import { FiTrash2, FiEdit, FiArrowUp, FiPrinter } from "react-icons/fi";
 import UseLoader from "../../hooks/UseLoader";
 
 export default function TransferenciaIndex() {
@@ -246,6 +246,9 @@ export default function TransferenciaIndex() {
                   <td className="form-buttons">
                     <Link to={`/transferencia/update/${transferencia.id}`}>
                       <FiEdit className="btn-icon-alterar mr-2 mt-1" />
+                    </Link>
+                    <Link to={`/transferencia/report/${transferencia.id}`}>
+                      <FiPrinter className="btn-icon-reimprimir mr-2 mt-1" />
                     </Link>
                     <FiTrash2
                       className="btn-icon-excluir mt-1"
