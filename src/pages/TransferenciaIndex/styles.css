@@ -33,9 +33,8 @@
   background: var(--thead-gradient);
 }
 
-.lista-transferencias .table .btn-alterar {
+.lista-transferencias .table .custom-btn {
   display: inline-flex;
-  background-color: #004fbd;
   width: 60px;
   height: 30px;
   text-align: center;
@@ -51,6 +50,10 @@
   border: none;
 }
 
+.lista-transferencias .table .btn-alterar {
+  background-color: #004fbd;
+}
+
 .lista-transferencias .table .btn-alterar:hover {
   background-color: #0064e7;
 }
@@ -59,8 +62,12 @@
   background-color: #e00000;
 }
 
+.lista-transferencias .table .btn-icon-reimprimir {
+  background-color: rgb(223, 182, 0);
+}
+
 .lista-transferencias .table .btn-icon-reimprimir:hover {
-  background-color: rgb(236, 240, 0);
+  background-color: rgb(241, 197, 0);
 }
 
 .lista-transferencias-search {
