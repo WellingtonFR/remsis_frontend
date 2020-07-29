@@ -84,7 +84,7 @@ export default function FiliaisIndex() {
                   <td>{conferente.idConferente}</td>
                   <td className="form-buttons">
                     <FiTrash2
-                      className="btn-icon-excluir mt-1"
+                      className="btn-custom btn-icon-excluir mt-1"
                       onClick={() => excluirConferente(conferente.id)}
                     />
                   </td>

@@ -120,10 +120,10 @@ export default function FiliaisIndex() {
                   <td>{filial.nomeFantasia}</td>
                   <td className="form-buttons">
                     <Link to={`/filiais/update/${filial.id}`}>
-                      <FiEdit className="btn-icon-alterar mr-2 mt-1" />
+                      <FiEdit className="btn-custom btn-icon-alterar mr-2 mt-1" />
                     </Link>
                     <FiTrash2
-                      className="btn-icon-excluir mt-1"
+                      className="btn-custom btn-icon-excluir mt-1"
                       onClick={() => excluirFilial(filial.id)}
                     />
                   </td>

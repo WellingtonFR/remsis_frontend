@@ -116,10 +116,10 @@ export default function TransportadorIndex() {
                   <td>{transportador.placaVeiculo}</td>
                   <td className="form-buttons">
                     <Link to={`/transportador/update/${transportador.id}`}>
-                      <FiEdit className="btn-icon-alterar mr-2 mt-1" />
+                      <FiEdit className="btn-custom btn-icon-alterar mr-2 mt-1" />
                     </Link>
                     <FiTrash2
-                      className="btn-icon-excluir mt-1"
+                      className="btn-custom btn-icon-excluir mt-1"
                       onClick={() =>
                         excluirTransportador(`${transportador.id}`)
                       }
