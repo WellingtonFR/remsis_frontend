@@ -59,6 +59,10 @@
   background-color: #e00000;
 }
 
+.lista-transferencias .table .btn-icon-reimprimir:hover {
+  background-color: rgb(236, 240, 0);
+}
+
 .lista-transferencias-search {
   padding: 10px;
 }
