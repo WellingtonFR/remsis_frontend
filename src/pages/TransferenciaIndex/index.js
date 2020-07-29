@@ -245,13 +245,13 @@ export default function TransferenciaIndex() {
                   <td>{transferencia.notaFiscal_1}</td>
                   <td className="form-buttons">
                     <Link to={`/transferencia/report/${transferencia.id}`}>
-                      <FiPrinter className="custom-btn btn-icon-reimprimir mr-2 mt-1" />
+                      <FiPrinter className="btn-custom btn-icon-reimprimir mr-1 mt-1" />
                     </Link>
                     <Link to={`/transferencia/update/${transferencia.id}`}>
-                      <FiEdit className="custom-btn btn-icon-alterar mr-2 mt-1" />
+                      <FiEdit className="btn-custom btn-icon-alterar mr-1 mt-1" />
                     </Link>
                     <FiTrash2
-                      className="btn-icon-excluir mt-1"
+                      className="btn-custom btn-icon-excluir mt-1"
                       onClick={() => excluirtransferencia(transferencia.id)}
                     />
                   </td>

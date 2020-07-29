@@ -33,10 +33,11 @@
   background: var(--thead-gradient);
 }
 
-.lista-transferencias .table .custom-btn {
+/* .lista-transferencias .table .custom-btn {
   display: inline-flex;
-  width: 60px;
+  width: 30px;
   height: 30px;
+  font-size: 12px;
   text-align: center;
   padding: 0;
   justify-content: center;
@@ -45,10 +46,8 @@
   color: #fff;
   cursor: pointer;
   text-decoration: none;
-  margin-right: 10px;
-  margin-top: 5px;
   border: none;
-}
+} */
 
 .lista-transferencias .table .btn-alterar {
   background-color: #004fbd;

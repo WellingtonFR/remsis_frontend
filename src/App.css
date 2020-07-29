@@ -187,8 +187,7 @@ a:link:hover {
   margin: 0 auto;
 }
 
-.btn-icon-excluir {
-  background-color: #af0600;
+.btn-custom {
   color: #fff;
   padding: 4px;
   border-radius: 5px;
@@ -196,6 +195,10 @@ a:link:hover {
   height: 30px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.btn-icon-excluir {
+  background-color: #af0600;
 }
 
 .btn-icon-excluir:hover {
@@ -204,13 +207,6 @@ a:link:hover {
 
 .btn-icon-alterar {
   background-color: #004fbd;
-  color: #fff;
-  padding: 4px;
-  border-radius: 5px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  transition: 0.3s;
 }
 
 .btn-icon-alterar:hover {
