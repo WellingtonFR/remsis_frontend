@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import styles from "./styles.css";
 import api from "../../services/api";
 import UseLoader from "../../hooks/UseLoader";
+import { FiKey, FiUser } from "react-icons/fi";
+import logoMagalu from "../../img/logoMagalu.png";
 
 export default function Login() {
   const [loader, showLoader, hideLoader] = UseLoader();
@@ -38,29 +40,38 @@ export default function Login() {
   }
 
   return (
-    <div className="container login">
-      <form onSubmit={handleLogin}>
-        <h1>LOGIN</h1>
-        <hr />
-        <label htmlFor="nomeUsuario">Usuário</label>
-        <input
-          type="text"
-          className="form-control"
-          required
-          onChange={(e) => setNomeusuario(e.target.value)}
-        />
-        <label htmlFor="senha">Senha</label>
-        <input
-          type="password"
-          className="form-control"
-          required
-          onChange={(e) => setSenha(e.target.value)}
-        />
-        <div className="buttons-submit">
-          <button className="btn btn-primary">Entrar</button>
-        </div>
-      </form>
-      {loader}
-    </div>
+    <body className="body-gradient-trasition">
+      <div className="container login">
+        <form onSubmit={handleLogin}>
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-md-8">
+              <img src={logoMagalu} className="img-fluid" alt="logoMagalu" />
+            </div>
+            <div className="col"></div>
+          </div>
+          <FiKey className="login-icons" />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="USUÁRIO"
+            required
+            onChange={(e) => setNomeusuario(e.target.value)}
+          />
+          <FiUser className="login-icons" />
+          <input
+            type="password"
+            className="form-control"
+            placeholder="SENHA"
+            required
+            onChange={(e) => setSenha(e.target.value)}
+          />
+          <div className="buttons-submit">
+            <button className="btn btn-primary">Entrar</button>
+          </div>
+        </form>
+        {loader}
+      </div>
+    </body>
   );
 }

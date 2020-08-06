@@ -132,6 +132,7 @@ table {
 :root {
   --thead-gradient: linear-gradient(to right, #2d65b4, #00c0eb);
   --table-background: #cee0ff;
+  --body-background-gradient: linear-gradient(to right, #3875ca, #00bde7);
 }
 
 /*Eliminina as setas do input number*/
@@ -146,14 +147,59 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
-/*Eliminina as setas do input number*/
 
 body {
   background-color: #313131;
   font-family: Roboto;
   background: #00a2c7;
-  background: linear-gradient(to right, #3875ca, #00bde7);
+  background: var(--body-background-gradient);
 }
+
+/* Gradient background */
+.body-gradient-trasition {
+  width: 100wh;
+  height: 100vh;
+  color: #fff;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#0083ca),
+    color-stop(#8e2073),
+    to(#006195)
+  );
+  background: -webkit-linear-gradient(left, #c7ca00, #ff4f4f, #0083ca, #21a300);
+  background: -o-linear-gradient(left, #c7ca00, #ff4f4f, #0083ca, #21a300);
+  background: linear-gradient(90deg, #c7ca00, #ff4f4f, #0083ca, #21a300);
+  background-size: 800% 800%;
+  -webkit-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
+  }
+}
+/* Gradient background */
 
 a:link {
   text-decoration: none;

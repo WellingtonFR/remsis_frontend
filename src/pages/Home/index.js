@@ -5,7 +5,7 @@ import logoMagalu from "../../img/logoMagalu.png";
 
 export default function Home() {
   return (
-    <div className="container-fluid home">
+    <div className="container-fluid home body-gradient-transition">
       <div className="cover-background">
         <div className="row">
           <div className="col-md-3">
