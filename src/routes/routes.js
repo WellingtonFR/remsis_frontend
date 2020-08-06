@@ -38,11 +38,9 @@ export default function Routes() {
 
   return (
     <BrowserRouter>
+      <Header />
       <div>
-        {/*Login*/}
         <Switch>
-          <Route exact path="/login" component={Login} />
-          <Header />
           <PrivateRoute exact path="/" component={Home} />
           {/*Filial*/}
           <PrivateRoute exact path="/filiais" component={FiliaisIndex} />
@@ -86,6 +84,9 @@ export default function Routes() {
             path="/conferente/create"
             component={ConferenteCreate}
           />
+
+          {/*Login*/}
+          <Route exact path="/login" component={Login} />
 
           {/* 404 error */}
           <Route component={NotFoundPage} />
