@@ -145,14 +145,9 @@ export default function Header() {
                 </li>
               </ul>
             )}
-            {isLoggedIn === "true" && (
-              <button
-                className="btn btn-danger btn-login"
-                onClick={handleLogout}
-              >
-                SAIR
-              </button>
-            )}
+            <button className="btn btn-danger btn-login" onClick={handleLogout}>
+              SAIR
+            </button>
           </div>
         </nav>
       )}
