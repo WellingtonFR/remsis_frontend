@@ -17,11 +17,6 @@ export default function Header() {
     window.location.reload();
   }
 
-  useEffect(() => {
-    console.log(isLoggedIn);
-    console.log(typeof isLoggedIn);
-  }, []);
-
   return (
     <div>
       {isLoggedIn !== "false" && (

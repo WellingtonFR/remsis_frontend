@@ -50,7 +50,7 @@ export default function Login() {
             </div>
             <div className="col"></div>
           </div>
-          <FiKey className="login-icons" />
+          <FiUser className="login-icons" />
           <input
             type="text"
             className="form-control"
@@ -58,7 +58,7 @@ export default function Login() {
             required
             onChange={(e) => setNomeusuario(e.target.value)}
           />
-          <FiUser className="login-icons" />
+          <FiKey className="login-icons" />
           <input
             type="password"
             className="form-control"
