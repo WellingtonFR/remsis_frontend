@@ -40,7 +40,7 @@ export default function Login() {
   }
 
   return (
-    <body className="body-gradient-trasition">
+    <div className="body-gradient-trasition">
       <div className="container login">
         <form onSubmit={handleLogin}>
           <div className="row">
@@ -72,6 +72,6 @@ export default function Login() {
         </form>
         {loader}
       </div>
-    </body>
+    </div>
   );
 }
