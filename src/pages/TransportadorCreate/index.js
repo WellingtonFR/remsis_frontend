@@ -9,6 +9,7 @@ export default function TransportadorCreate() {
   const [loader, showLoader, hideLoader] = UseLoader();
   const [nomeTransportador, setNomeTransportador] = useState("");
   const [placaVeiculo, setPlacaVeiculo] = useState("");
+  const [filialAtendida, setFilialAtendida] = useState("");
 
   async function handleNewTransportador(e) {
     e.preventDefault();
@@ -16,6 +17,7 @@ export default function TransportadorCreate() {
     const data = {
       nomeTransportador,
       placaVeiculo,
+      filialAtendida,
     };
 
     try {
@@ -65,6 +67,17 @@ export default function TransportadorCreate() {
             maxLength="8"
             required
             onChange={(e) => setPlacaVeiculo(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="filialAtendida">Filial atendida</label>
+          <input
+            type="text"
+            name="filialAtendida"
+            className="form-control"
+            maxLength="30"
+            required
+            onChange={(e) => setFilialAtendida(e.target.value)}
           />
         </div>
         <div className="row buttons-submit">

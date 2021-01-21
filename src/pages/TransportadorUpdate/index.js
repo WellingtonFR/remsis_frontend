@@ -39,6 +39,7 @@ export default function TransportadoUpdate() {
     const data = {
       nomeTransportador: transportador.nomeTransportador,
       placaVeiculo: transportador.placaVeiculo,
+      filialAtendida: transportador.filialAtendida,
     };
 
     try {
@@ -92,6 +93,19 @@ export default function TransportadoUpdate() {
             maxLength="8"
             required
             value={transportador.placaVeiculo}
+            onChange={handleInputChange}
+          ></input>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="filialAtendida">Filial atendida</label>
+          <input
+            type="text"
+            name="filialAtendida"
+            className="form-control"
+            maxLength="8"
+            required
+            value={transportador.filialAtendida}
             onChange={handleInputChange}
           ></input>
         </div>

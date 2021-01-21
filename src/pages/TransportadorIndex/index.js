@@ -11,6 +11,7 @@ import UseLoader from "../../hooks/UseLoader";
 export default function TransportadorIndex() {
   const [loader, showLoader, hideLoader] = UseLoader();
   const [transportador, setTransportador] = useState([]);
+  const [filialAtendida, setFilialAtendida] = useState([]);
 
   useEffect(() => {
     populateData();
@@ -94,6 +95,7 @@ export default function TransportadorIndex() {
             <tr>
               <th>Nome</th>
               <th>Placa</th>
+              <th>Filial atendida</th>
               <th
                 colSpan="2"
                 style={{
@@ -114,6 +116,7 @@ export default function TransportadorIndex() {
                 <tr key={transportador.id}>
                   <td>{transportador.nomeTransportador}</td>
                   <td>{transportador.placaVeiculo}</td>
+                  <td>{transportador.filialAtendida}</td>
                   <td className="form-buttons">
                     <Link to={`/transportador/update/${transportador.id}`}>
                       <FiEdit className="btn-custom btn-icon-alterar mr-2 mt-1" />
