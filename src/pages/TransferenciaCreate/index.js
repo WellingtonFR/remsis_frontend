@@ -463,7 +463,7 @@ export default function TransferenciaCreate() {
       .get(`/transportador/findByFilialAtendida/${optionValue}`)
       .then((response) => {
         hideLoader();
-        setTransportadores(response.data);
+        transportadores.push(response.data);
       });
   }
 
