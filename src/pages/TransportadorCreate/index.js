@@ -76,7 +76,6 @@ export default function TransportadorCreate() {
             name="filialAtendida"
             className="form-control"
             maxLength="30"
-            required
             onChange={(e) => setFilialAtendida(e.target.value)}
           />
         </div>

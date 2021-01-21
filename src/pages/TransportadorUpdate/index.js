@@ -103,8 +103,7 @@ export default function TransportadoUpdate() {
             type="text"
             name="filialAtendida"
             className="form-control"
-            maxLength="8"
-            required
+            maxLength="30"
             value={transportador.filialAtendida}
             onChange={handleInputChange}
           ></input>
