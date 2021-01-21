@@ -459,7 +459,12 @@ export default function TransferenciaCreate() {
         setEnderecoUnidadeDestino(endereco);
       });
 
-    handleTransportador(optionValue);
+    await api
+      .get(`/transportador/findByFilialAtendida/${optionValue}`)
+      .then((response) => {
+        hideLoader();
+        setTransportadores(response.data);
+      });
   }
 
   async function handleTransportador(optionValue) {
