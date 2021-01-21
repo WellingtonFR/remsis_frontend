@@ -458,6 +458,13 @@ export default function TransferenciaCreate() {
         setNomeUnidadeDestino(response.data[0].nomeFantasia);
         setEnderecoUnidadeDestino(endereco);
       });
+
+    await api
+      .get(`/transportador/findByFilialAtendida/${optionValue}`)
+      .then((response) => {
+        hideLoader();
+        setTransportador(response.data[0].nomeTransportador);
+      });
   }
 
   async function handleTransportador(optionValue) {
