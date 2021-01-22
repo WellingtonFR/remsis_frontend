@@ -37,9 +37,17 @@ export default function TransferenciaUpdate() {
 
   async function populateData() {
     showLoader();
-    api.get(`/transferencia/findById/${id}`).then((response) => {
+    await api.get(`/transferencia/findById/${id}`).then((response) => {
       hideLoader();
       setTransferencia(response.data[0]);
+      api
+        .get(
+          `/transportador/findByFilialAtendida/${response.data[0].unidadeDestino}`
+        )
+        .then((response) => {
+          hideLoader();
+          setTransportadores(response.data);
+        });
     });
     fetchDataToOptions();
   }
