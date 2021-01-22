@@ -64,6 +64,11 @@ export default function TransferenciaUpdate() {
   }
 
   async function handleTransportador(optionValue) {
+    if (!optionValue || optionValue == "") {
+      setPlacaVeiculo("");
+      setTransportador("");
+      return null;
+    }
     showLoader();
     await api.get(`/transportador/findById/${optionValue}`).then((response) => {
       hideLoader();
