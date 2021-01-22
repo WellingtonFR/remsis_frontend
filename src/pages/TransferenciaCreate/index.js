@@ -448,7 +448,6 @@ export default function TransferenciaCreate() {
     await api
       .get(`/filiais/findByNumeroFilial/${optionValue}`)
       .then((response) => {
-        hideLoader();
         let endereco =
           response.data[0].endereco +
           ", " +
@@ -463,7 +462,7 @@ export default function TransferenciaCreate() {
       .get(`/transportador/findByFilialAtendida/${optionValue}`)
       .then((response) => {
         hideLoader();
-        transportadores.push(response.data);
+        setTransportadores(response.data);
       });
   }
 
