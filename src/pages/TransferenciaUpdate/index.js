@@ -348,7 +348,9 @@ export default function TransferenciaUpdate() {
                 <option value="">Selecione</option>
                 {transportadores.map((transportador) => (
                   <option value={transportador.id} key={transportador.id}>
-                    {transportador.nomeTransportador}
+                    {transportador.filialAtendida +
+                      " " +
+                      transportador.nomeTransportador}
                   </option>
                 ))}
               </select>
