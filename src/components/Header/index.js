@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <div>
-      {isLoggedIn !== "false" && (
+      {isLoggedIn === "true" && (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark d-print-none">
           <a className="navbar-brand" href="/">
             RemSis
